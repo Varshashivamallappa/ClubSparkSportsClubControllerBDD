@@ -8,23 +8,24 @@ import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
+import io.restassured.specification.RequestSpecification;
 
 public class GetRequest2SD {
 	
-
+	RequestSpecification request;
 	Response response;
 	ValidatableResponse validate;
 	
 	@Given("User want to perform get action to fetch a particular club by name using API")
 	public void user_want_to_perform_get_action_to_fetch_a_particular_club_by_name_using_api() {
-		
-		RestAssured.given().header("Content-Type", "application/json");
 	    
 	}
 
 	@When("API url {string}")
 	public void api_url(String get2URL) {
-	    response = RestAssured.get(get2URL);
+		
+		request = RestAssured.given().contentType("application/json");
+		response = request.get(get2URL);
 	}
 
 	@Then("To validate that the status line is {string}")

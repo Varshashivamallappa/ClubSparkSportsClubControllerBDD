@@ -21,12 +21,12 @@ public class PutRequestSD {
 	public void user_want_to_update_modify_the_sports_club_details() {
 		
 		JSONObject object = new JSONObject();
-		object.put("id", "7");
-		object.put("address", "Vijayanagar1");
+		object.put("id", "37");
+		object.put("address", "Bengaluru");
 		object.put("description", "All sports activities");
-		object.put("name", "8848765423");
-		object.put("leader", "ABC");
-		object.put("ranking","2");
+		object.put("name", "Iconic");
+		object.put("leader", "Varsha");
+		object.put("ranking","1");
 		
 		request = RestAssured.given();
 		request.body(object);

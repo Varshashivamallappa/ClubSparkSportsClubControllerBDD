@@ -5,16 +5,19 @@ import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
+import io.restassured.specification.RequestSpecification;
 
 public class DeleteRequestSD {
 	
+	RequestSpecification request;
 	Response response;
 	ValidatableResponse validate;
 	
 	@When("Delete Api url {string}")
 	public void delete_api_url(String deleteURL) {
-	    
-		response = RestAssured.delete(deleteURL);
+		
+	    request = RestAssured.given().contentType("application/json");
+		response = request.delete(deleteURL);
 	}
 
 	@Then("To validate that the status code is {int}")

@@ -23,7 +23,7 @@ public class PostRequestSD {
 		JSONObject object = new JSONObject();
 		object.put("address", "Bogadi");
 		object.put("description", "All sports activities");
-		object.put("name", "8848760023");
+		object.put("name", "xyz");
 		object.put("leader", "Harshitha");
 		object.put("ranking","1");
 		

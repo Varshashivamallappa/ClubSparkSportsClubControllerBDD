@@ -4,6 +4,8 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import static io.restassured.RestAssured.*;
+
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -12,17 +14,20 @@ import io.restassured.specification.RequestSpecification;
 
 public class GetRequest1SD {
 	
+	RequestSpecification request;
 	Response response;
 	ValidatableResponse validate;
 
 	@Given("User want to perform get action using API")
 	public void user_want_to_perform_get_action_using_api() {
-		RestAssured.given().header("Content-Type", "application/json");
+		
 	}
 
 	@When("Api url {string}")
 	public void api_url(String getURL) {
-		response=RestAssured.post(getURL);
+		
+		request = RestAssured.given().contentType("application/json");
+		response = request.get(getURL);
 	    
 	}
 
